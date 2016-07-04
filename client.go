@@ -107,6 +107,7 @@ func (client *Client) ConnectAndWrite(resp *PushNotificationResponse, payload []
 
 	gatewayParts := strings.Split(client.Gateway, ":")
 	conf := &tls.Config{
+		InsecureSkipVerify: true,
 		Certificates: []tls.Certificate{cert},
 		ServerName:   gatewayParts[0],
 	}
